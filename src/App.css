@@ -1,0 +1,5 @@
+/* Xóa hết nội dung cũ, chỉ để lại dòng này cho sạch */
+.main-wrapper {
+  width: 100%;
+  position: relative;
+}
