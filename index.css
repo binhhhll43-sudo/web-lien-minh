@@ -1,0 +1,1664 @@
+
+/* --- RESET & BASIC STYLES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Arial", sans-serif;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* --- NAVIGATION BAR --- */
+.lol-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+  border-bottom: 1px solid #333;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-img-riot {
+  height: 40px;
+  width: 80px;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #444;
+  margin: 0 20px;
+}
+
+.nav-img-l {
+  height: 25px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  height: 100%;
+  align-items: center;
+}
+
+.nav-links li {
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.nav-links li:hover {
+  color: #d0a85c;
+}
+
+/* Dropdown Menu */
+.nav-item-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  background-color: #292929;
+  min-width: 200px;
+  list-style: none;
+  padding: 10px 0;
+  display: none;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.dropdown-menu li {
+  padding: 12px 25px;
+  color: #ccc !important;
+  font-size: 10px !important;
+  border-left: 2px solid transparent;
+  width: 100%;
+  text-align: left;
+  height: auto !important;
+  text-transform: uppercase;
+}
+
+.dropdown-menu li:hover {
+  background-color: #333;
+  color: #fff !important;
+  border-left: 2px solid #d0a85c;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Search & Icons */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-icons-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.riot-search-container {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  border-radius: 4px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  width: 45px;
+}
+
+.riot-search-container.active {
+  background: rgba(255, 255, 255, 0.1);
+  width: 280px;
+  padding-right: 15px;
+}
+
+.search-icon-box {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.icon-search-img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.riot-search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  width: 0;
+  opacity: 0;
+  transition: all 0.4s ease;
+  margin-left: 10px;
+}
+
+.riot-search-container.active .riot-search-input {
+  width: 100%;
+  opacity: 1;
+}
+
+.icon-globe {
+  margin-right: 70px;
+  font-size: 18px;
+  filter: grayscale(1) brightness(5);
+  cursor: pointer;
+}
+
+.btn-play-now {
+  background: #00bcda;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+
+}
+.btn-play-now:hover {
+  background: #00e5ff; /* Chỉ đổi màu sáng lên cho đẹp */
+  transform: none !important; /* Khóa cứng vị trí, không cho dịch chuyển */
+}
+/* --- HERO SECTION --- */
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 80px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 25px;
+}
+
+.btn-play-free {
+  background: #bc9342;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 15px 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+
+.btn-play-free:hover {
+  background: #d4af37;
+  transform: scale(1.05);
+}
+
+/* --- NEWS SECTION --- */
+.news-section {
+  background: #fff;
+  padding: 80px 10%;
+  border-bottom: 1px solid #eee;
+}
+
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.news-main-title {
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.explore-more {
+  font-size: 13px;
+  font-weight: bold;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 2px solid #d0a85c;
+  padding-bottom: 4px;
+}
+
+.news-grid {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.news-card {
+  flex: 1 1 calc(33.333% - 25px);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.news-card-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+  background-color: #000;
+}
+
+.news-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+  display: block;
+}
+
+.news-card:hover img {
+  transform: scale(1.05);
+}
+
+.news-info {
+  padding: 15px 0;
+  text-align: left;
+}
+
+.news-category {
+  font-size: 12px;
+  font-weight: 800;
+  color: #d0a85c;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.news-item-title {
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.3;
+  color: #111;
+  transition: 0.2s;
+}
+
+.news-card:hover .news-item-title {
+  color: #555;
+}
+
+/* --- CHAMP SELECT SECTION --- */
+.champ-select-section {
+  padding: 100px 0 150px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.champ-center-visual {
+  position: relative;
+  width: 80%;
+  max-width: 1300px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-circle {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.akali-main-img {
+  height: 120%;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+}
+
+.champ-overlay-text {
+  position: absolute;
+  left: 10%;
+  z-index: 10;
+  width: 450px;
+  text-align: center;
+}
+
+.txt-sub {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.txt-main {
+  font-size: 70px;
+  font-style: italic;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.txt-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-group-overlay {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.btn-gold-style {
+  background: #d9b857;   /* vàng gốc */
+  color: #fff;
+    border: none; 
+  padding: 12px 25px;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.btn-gold-style:hover {
+  background: #e6c76f;   /* vàng nhạt hơn, gần như mất độ đậm */
+  
+}
+
+.btn-blue-style {
+  background: #00bcda;
+  color: #fff;
+    border: none; 
+  padding: 12px 25px;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+}
+.btn-blue-style:hover { 
+  background:#33cce0;
+}
+.role-icons-list {
+  display: flex;
+  gap: 20px;
+  
+}
+
+.role-item {
+  text-align: center;
+  opacity: 0.5;
+  transition: 0.3s;
+  cursor: pointer; 
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.role-item.active, .role-item:hover {
+  opacity: 1;
+  color: #d0a85c;
+}
+
+.role-icon-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.akali-label-bottom {
+  position: absolute;
+  bottom: -60px;
+  left: 62%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.akali-label-bottom h2 {
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* --- WAYS TO PLAY SECTION --- */
+.ways-to-play-section {
+  position: relative;
+  width: 100%;
+  background-color: #010a13;
+  line-height: 0;
+  padding-top: 50px;
+}
+
+.full-bg-image {
+  width: 85%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.skins-content-overlay {
+  position: absolute;
+  top: 18%;
+  right: 8%;
+  color: #fff;
+  z-index: 10;
+  line-height: normal;
+}
+
+.skins-content-overlay h2 {
+  font-size: 50px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.modes-content-overlay {
+  position: absolute;
+  bottom: 12%;
+  left: 25%;
+  color: #fff;
+  z-index: 10;
+  text-align: center;
+  line-height: normal;
+}
+
+.modes-content-overlay h2 {
+  font-size: 45px;
+  font-style: italic;
+  font-weight: 900;
+}
+
+.video-circle-box {
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+  width: 350px;
+  height: 350px;
+  z-index: 5;
+  line-height: normal;
+}
+
+.inner-circle-clip {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #010a13;
+}
+
+.inner-circle-clip video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- NEWS PAGE (FULL GRID) --- */
+.news-page-container {
+  padding: 75px 0 0 0 !important;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.news-header-banner {
+  background-color: #0a1428;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  margin-bottom: 60px;
+}
+
+.news-main-title-large {
+  color: #fff;
+  font-size: 60px;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.news-list-content {
+  padding: 0 10% 80px;
+}
+
+.news-full-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+}
+
+.load-more-box {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.load-more-text {
+  color: #111;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+  border: none !important;
+  background: none !important;
+  transition: 0.3s;
+}
+
+.load-more-text:hover {
+  color: #d0a85c;
+}
+
+/* --- FOOTER --- */
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.social-icon-box {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 18px;
+}
+
+.social-icon-box:hover {
+  background-color: #444;
+  transform: scale(1.1);
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .nav-links, .nav-right .icon-globe, .btn-play-now {
+    display: none;
+  }
+  
+  .news-grid, .news-full-grid {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .news-header-banner {
+    height: 180px;
+    padding: 0 20px;
+  }
+
+  .news-main-title-large {
+    font-size: 35px;
+  }
+}
+.modes-icons-row {
+  display: flex;          /* Kích hoạt flexbox để dàn hàng ngang */
+  flex-direction: row;    /* Ép nó nằm ngang */
+  gap: 70px;              /* Khoảng cách giữa các mode chơi */
+  justify-content: center; /* Căn giữa hàng */
+  margin-top: 25px;
+}
+
+.mode-thumb {
+  width: 80px;            /* Chỉnh lại độ rộng vừa phải */
+  text-align: center;
+} 
+/* Container chính của Footer */
+.riot-footer-final {
+  background-color: #111;
+  padding: 80px 0;        /* Tăng padding cho thoáng như ảnh 3 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Các link chính sách (Chỗ ảnh 2 bị tím và dính chữ) */
+.footer-bottom-nav {
+  display: flex;
+  gap: 30px;   
+             /* Tạo khoảng cách rộng giữa các chữ */
+  margin-bottom: 20px;
+}
+
+.footer-bottom-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Phần text bản quyền xám xịt ở giữa */
+.footer-copyright-text {
+  color: #7e7e7e;
+  font-size: 11px;
+  max-width: 900px;       /* Giới hạn độ rộng để xuống hàng đẹp */
+  line-height: 1.8;
+  margin: 20px 0;
+  text-align: center;
+} 
+/* Container chứa 2 logo Riot và VNG */
+.footer-logos-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;            /* Khoảng cách giữa 2 logo */
+  margin-bottom: 25px;  /* Khoảng cách với đoạn chữ bên dưới */
+}
+
+.footer-logo-item {
+  height: 35px;         /* Độ cao vừa phải như ảnh mẫu */
+  width: auto;
+  opacity: 0.8;         /* Hơi mờ nhẹ cho tiệp màu nền */
+  transition: 0.3s;
+}
+
+.footer-logo-item:hover {
+  opacity: 1;           /* Di chuột vào thì sáng rõ */
+}
+
+/* Sửa link giấy phép màu xám nhỏ */
+.footer-license-link {
+  color: #7e7e7e !important;
+  font-size: 11px;
+  text-decoration: underline;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Đảm bảo thanh điều hướng phụ nằm ngang */
+.footer-links-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Tìm đến đoạn này và sửa lại giá trị background-color */
+/* Tìm đến đoạn này và sửa lại giá trị background-color */
+.footer-links-row a:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Tăng độ sáng lên một chút để thấy rõ màu trắng mờ */
+  color: #fff; /* Đảm bảo chữ vẫn giữ màu trắng */
+}
+
+/* Thêm thuộc tính này vào class gốc để hiệu ứng mượt mà hơn */
+.footer-links-row a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px 12px;        /* Điều chỉnh lại padding cho giống mẫu */
+  border-radius: 4px;       /* Bo góc nhẹ */
+  transition: background-color 0.2s ease; /* Hiệu ứng chuyển màu mượt */
+  text-transform: uppercase;
+}
+
+.champions-page {
+    padding-top: 100px; /* Tránh bị che bởi Navbar fixed */
+    text-align: center;
+    background-color: #fff;
+}
+
+.champions-header {
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.champions-header .sub-title {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.champions-header .main-title {
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.champions-header .description {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* --- TRANG DANH SÁCH TƯỚNG (PHẦN MỚI THAY THẾ) --- */
+.champions-page-new {
+    padding-top: 100px;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* Grid chia đúng 4 cột tăm tắp */
+.champions-grid-riot {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important; 
+    gap: 25px;
+    padding: 0 10% 100px;
+}
+
+/* Card chứa ảnh tướng */
+.champion-card-riot {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.champion-card-riot:hover {
+    transform: translateY(-10px);
+}
+
+.champion-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4.2; /* Tỉ lệ dọc chuẩn Riot */
+    overflow: hidden;
+}
+
+.champion-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CÁI KHUÔN XANH ĐẬM HIỆN TÊN TƯỚNG */
+.champion-name-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #061c25; /* Màu xanh đen đặc trưng của Riot */
+    padding: 20px 15px;
+    
+}
+
+.champion-name-box span {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+.champion-card-riot:hover .champion-name-box {
+    background-color: #3e485a; /* Sáng hơn một tí so với màu nền gốc */
+    border-top: none;
+    box-shadow: none;
+}
+/* Hỗ trợ hiển thị trên điện thoại */
+@media (max-width: 1024px) {
+    .champions-grid-riot { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+@media (max-width: 768px) {
+    .champions-grid-riot { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        padding: 0 5%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .champions-grid-riot { grid-template-columns: 1fr !important; }
+} 
+/* Căn giữa toàn bộ nội dung header của trang tướng */
+
+/* Chỉnh khoảng cách dòng cho mô tả để nó cân đối khi ở giữa */
+.champions-header .txt-desc {
+    max-width: 650px;       /* Giới hạn độ rộng để chữ không bị tràn hàng dài quá khó đọc */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Đảm bảo chữ TƯỚNG to và nổi bật */
+/* Căn giữa Header */
+.champions-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px; /* Giảm bớt khoảng cách trên mobile cho gọn */
+    padding: 0 20px;
+    margin-top: 50px;    /* Đẩy xuống một chút để không dính Navbar */
+}
+
+/* Chữ TƯỚNG mặc định */
+.champions-header .txt-main {
+    font-size: 70px;
+    font-weight: 900;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+/* --- ĐOẠN CẦN THÊM ĐỂ CHỮ KHÔNG BỊ TO QUÁ TRÊN ĐIỆN THOẠI --- */
+@media (max-width: 768px) {
+    .champions-header .txt-main {
+        font-size: 45px; /* Thu nhỏ chữ TƯỚNG trên mobile */
+    }
+    .champions-header .txt-sub {
+        font-size: 12px;
+    }
+    .champions-header .txt-desc {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
+/* --- CSS CHO MOBILE MENU (HAMBURGER) --- */
+
+/* Ẩn nút 3 gạch trên máy tính */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.mobile-menu-btn .bar {
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+/* Hiệu ứng chuyển từ 3 gạch sang dấu X khi mở */
+.mobile-menu-btn .bar.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-btn .bar.open:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn .bar.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Lớp phủ menu tràn màn hình */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 80px; /* Dưới Navbar */
+  left: -100%; /* Giấu menu bên trái */
+  width: 75%;
+  height: calc(100vh - 80px);
+  background: #111;
+  transition: 0.4s ease-in-out;
+  z-index: 1000;
+  padding: 40px 20px;
+}
+
+.mobile-nav-overlay.active {
+  left: 0; /* Hiện menu */
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-nav-links li {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 0;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.mobile-nav-links li:hover {
+  color: #d0a85c;
+}
+
+/* --- RESPONSIVE CHO ĐIỆN THOẠI --- */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex; /* Hiện nút 3 gạch trên mobile */
+    margin-right: 15px;
+  }
+
+  .nav-links {
+display: none; 
+  
+  }
+
+  .nav-img-riot {
+    height: 20px;
+  }
+
+  .btn-play-now {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+} 
+/* Mặc định ẩn nút 3 gạch trên Laptop */
+.mobile-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.mobile-hamburger span {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+/* --- RESPONSIVE CHO ĐIỆN THOẠI --- */
+@media (max-width: 768px) {
+  /* Hiện nút 3 gạch */
+  .mobile-hamburger {
+    display: flex;
+  }
+
+  /* Ẩn kính lúp trên mobile theo yêu cầu */
+  .desktop-only-icon {
+    display: none !important;
+  }
+
+  /* Chỉnh sửa nav-links thành menu dọc ẩn đi */
+  .nav-links {
+    display: none; /* Mặc định ẩn */
+    position: absolute;
+    top: 80px; /* Khớp với chiều cao navbar */
+    left: 0;
+    width: 100%;
+    background: #111;
+    flex-direction: column;
+    padding: 20px 0;
+    z-index: 999;
+  }
+
+  /* Khi bấm vào 3 gạch (thêm class mobile-active) thì hiện menu */
+  .nav-links.mobile-active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    padding: 15px 25px;
+    border-bottom: 1px solid #222;
+  }
+
+  .dropdown-menu {
+  position: absolute;   /* QUAN TRỌNG */
+  right: 0;             /* ép về bên phải */
+  left: auto;
+  width: 200px;         /* nhỏ lại */
+  background: #222;
+  box-shadow: none;
+}
+  .nav-item-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* Điều chỉnh vị trí quả địa cầu kế bên 3 gạch */
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  /* Thu nhỏ nút Chơi ngay trên mobile nếu cần */
+  .btn-play-now {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+} 
+/* --- GIỮ NGUYÊN CÁC PHẦN TRÊN CỦA BẠN --- */
+.support-tool-item {
+    background: #1a1a1a;
+    padding: 12px 20px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s ease-out !important; 
+    position: relative;
+    overflow: hidden;
+}
+
+.support-tool-item:hover {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    border-color: #666;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.support-tool-item img, 
+.support-tool-item .image-container {
+    transition: transform 0.4s ease-out !important;
+}
+
+.support-tool-item:hover img,
+.support-tool-item:hover .image-container {
+    transform: scale(1.2) rotate(2deg);
+} 
+
+/* --- PHẦN QUAN TRỌNG: CHỈNH LẠI GAME-SUPPORT-CARD ĐỂ GIỐNG ẢNH 2 & 3 --- */
+.game-support-card {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px; /* Chỉnh lại 4px cho giống Riot */
+    background: #fff;
+    border: 1px solid #eee;
+    transition: all 0.3s ease; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 0; /* Để dải đỏ sát mép trái */
+}
+
+/* THÊM VÀO ĐÂY: Dải màu đỏ chiếm nhiều diện tích (Giống ảnh 2) */
+.game-support-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px; /* Độ rộng dải đỏ chiếm nhiều diện tích */
+    height: 100%;
+    /* Hiệu ứng đỏ đậm ở trên, nhạt dần xuống dưới */
+    background: linear-gradient(to bottom, #d13639 0%, #d13639 70%, rgba(209, 54, 57, 0) 100%);
+    z-index: 1;
+}
+
+.game-card-img-box {
+    overflow: hidden;
+    width: 100%;
+}
+
+.support-game-img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* HIỆU ỨNG KHI RÊ CHUỘT (HOVER) */
+.game-support-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    /* THÊM VÀO ĐÂY: Viền đỏ dính liền khuôn (Giống ảnh 3) */
+    border: 1px solid #d13639 !important; 
+}
+
+.game-support-card:hover .support-game-img {
+    transform: scale(1.1);
+}
+
+.game-support-card:hover .game-card-info span {
+    color: #d13639;
+} 
+
+/* Chỉnh chữ để không bị dải đỏ đè lên */
+.game-support-card span {
+    padding-left: 25px; 
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- PHẦN NÚT BẤM CỦA BẠN --- */
+.btn-submit {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #b30000;
+} 
+
+button {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+} 
+/* --- CSS CHO 4 KHUNG THÔNG BÁO (ẢNH 2 & 3) --- */
+
+.news-card-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 20px 15px 20px 0; /* padding-left bằng 0 để dải đỏ sát mép */
+    border-radius: 4px;
+    border: 1px solid #eee; 
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+    height: 80px; /* Độ cao phù hợp để dải đỏ kéo dài */
+}
+
+/* 1. Tạo dải màu đỏ chiếm diện tích lớn và giảm dần (Giống ảnh 2) */
+.news-card-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px; /* Độ rộng dải đỏ to rõ rệt */
+    height: 100%;
+    /* Màu đỏ đậm phía trên và mờ dần (transparent) ở đáy */
+    background: linear-gradient(to bottom, #d13639 0%, #d13639 60%, rgba(209, 54, 57, 0) 100%);
+}
+
+/* 2. Hiệu ứng viền đỏ dính liền khung khi di chuột (Giống ảnh 3) */
+.news-card-item:hover {
+    border: 1.5px solid #d13639 !important; /* Viền đỏ bao quanh sát khuôn */
+    background-color: #fff;
+}
+
+/* 3. Căn chỉnh chữ bên trong khung */
+.news-card-item span {
+    padding-left: 35px; /* Đẩy chữ qua để không đè lên dải đỏ to */
+    font-size: 13px;
+    font-weight: bold;
+    color: #111;
+    line-height: 1.4;
+    text-align: left;
+} 
+/* --- PHẦN CHỈNH 4 KHUNG THÔNG BÁO GIỐNG ẢNH 2 & 3 --- */
+/* Nút đăng nhập nhỏ trên Navbar trang Support */
+.btn-login-nav {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-login-nav:hover {
+    background: #444;
+}
+
+/* Icon mũi tên xuống cho dropdown Support */
+.arrow-down {
+    border: solid #888;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-left: 8px;
+    margin-bottom: 3px;
+} 
+/* 1. Khung chứa ảnh - Giữ khuôn cố định */
+.champion-card-frame {
+  width: 100%;
+  position: relative;
+  overflow: hidden; /* Cắt phần ảnh thừa khi phóng to */
+  aspect-ratio: 1 / 1.1; /* Tỉ lệ khung ảnh chuẩn trang tướng */
+  background: #010a13;
+}
+
+/* 2. Ảnh tướng bên trong - Thiết lập hiệu ứng mượt */
+.champion-card-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Chỉnh thành 0.4s và ease-in-out cho mượt nhất */
+  transition: transform 0.4s ease-in-out; 
+}
+
+/* 3. Tên tướng - Thiết lập đổi màu */
+.champion-card-wrapper .champion-name {
+  transition: color 0.3s ease;
+  color: #fff; /* Màu mặc định */
+}
+
+/* 4. HIỆU ỨNG KHI DI CHUỘT VÀO (HOVER) */
+/* Phóng to ảnh 10% nhưng không tràn khung */
+.champion-card-wrapper:hover .champion-card-frame img {
+  transform: scale(1.1);
+}
+
+/* Đổi màu chữ sang vàng đồng kiểu Riot */
+.champion-card-wrapper:hover .champion-name {
+  color: #d0a85c !important;
+} 
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 25px; /* Tăng khoảng cách cho thoáng */
+  max-width: 1000px; /* Giới hạn chiều rộng tổng */
+  margin: 40px auto; /* Căn giữa toàn bộ cụm */
+}
+
+/* 1. Giữ nguyên đoạn của ông */
+.related-item {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+/* 1. Định dạng khung chứa ảnh (giữ nguyên khuôn) */
+.img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.related-item:hover .img-container img {
+  transform: scale(1.1);
+} 
+.related-item:hover .img-container img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+.related-item img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255,255,255,0.1); /* Viền mờ cho sang */
+}
+
+.category-tag {
+  color: #d0a85c; /* Màu vàng chuẩn Riot */
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.date-text {
+  color: #666; /* Màu xám cho ngày tháng */
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+.related-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #111; /* Màu chữ tiêu đề */
+}
+
+.related-desc {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Khi màn hình nhỏ hơn 768px (Điện thoại) */
+@media (max-width: 768px) { 
+
+  .related-posts-grid {
+    grid-template-columns: 1fr; /* Nhảy về 1 cột dọc */
+    padding: 0 20px;
+  }
+} 
+
+/* 4. HIỆU ỨNG CHO DANH SÁCH BLV (Tặng thêm cho ông) */
+.related-posts-grid + div span {
+  transition: color 0.2s ease;
+  padding: 5px;
+}
+
+.related-posts-grid + div span:hover {
+  color: #00bc8c; /* Đổi màu xanh hoặc vàng tùy ông thích khi rê chuột vào tên BLV */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.hamburger-menu { /* 1. Ép hiển thị rõ ràng */ display: block !important; /* 2. Màu sắc phải tương phản (trắng trên nền đen) */ color: #ffffff !important; /* 3. Kích thước đủ lớn để nhìn thấy */ font-size: 20px !important; /* 4. Đảm bảo nó không bị che khuất */ z-index: 9999; /* Thêm cái này để kiểm tra vị trí */  }
+@media (max-width: 768px) {
+  .lol-navbar {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+} 
+html, body, #root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+@media (max-width: 768px) {
+  .hamburger-menu {
+  display: flex !important; 
+  }
+} 
+@media (max-width: 768px) {
+
+  .champ-select-section{
+    padding: 40px 15px;
+    overflow: hidden;
+  }
+
+  .champ-center-visual{
+    width: 100%;
+    position: relative;
+  }
+
+  .akali-main-img{
+    height: 65%;
+  }
+
+  .champ-overlay-text{
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  .txt-main{
+    font-size: 42px;
+  }
+
+  .txt-desc{
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .btn-group-overlay{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn-gold-style,
+  .btn-blue-style{
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .role-icons-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .role-item{
+    width: 70px;
+  }
+
+} 
+@media (max-width: 768px){
+
+  .ways-to-play-section{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 120px;
+  }
+
+  .video-circle-box{
+    position: absolute;
+    right: 10px;
+    bottom: 70px;
+
+    width: 130px;
+    height: 200px;
+
+    z-index: 20;
+  }
+
+  .gold-ring{
+    width: 130px;
+    height: 130px;
+  }
+
+  .inner-circle-clip{
+    width: 100px;
+    height: 100px;
+  }
+
+  .inner-circle-clip video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-caption{
+    display: none;
+  }
+
+  /* THÊM ĐOẠN NÀY */
+  .modes-content-overlay h3{
+    font-size: 14px;
+  }
+  .modes-content-overlay{
+    position: absolute;
+    left: 70px;
+    top: 190px;
+    z-index: 20;
+  }
+
+  .skins-title-custom{
+    font-size: 12px !important; 
+  
+  }
+
+  .modes-content-overlay .btn-gold-style{
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+} 
+@media (max-width: 768px){
+
+  .ways-to-play-section{
+    padding-bottom: 20px;
+    margin-bottom: 0;
+  }
+
+} 
+@media (max-width: 768px){
+
+  .footer-bottom-nav{
+    padding-left: 20px;
+  }
+
+}
+
+.riot-footer-final{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  
+  width: 100vw;
+  background: #111;
+  padding: 60px 40px;
+  box-sizing: border-box;
+
+  overflow-x: hidden; 
+  padding:00px;
+}  
+@media (max-width: 768px){
+
+.txt-desc {
+  font-size: 14 px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px; 
+  padding-right: 70px;
+
+} 
+} 
+
+.news-full-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* PC: 3 cột */
+  gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .news-full-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 cột */
+  }
+}
+
+@media (max-width: 768px) {
+  .news-full-grid {
+    grid-template-columns: 1fr; /* Mobile: 1 cột */
+  }
+}
+.btn-gold-style {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 14px;
+  background: #d9b857;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .btn-gold-style {
+    width: 50%;       /* giảm chiều ngang */
+    font-size: 12px;  /* chữ nhỏ lại */
+    padding: 10px 15px;
+    margin: 0 auto;   /* căn giữa */
+    display: block;
+  }
+}
+
+.btn-blue-style {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 14px;
+  background: #00bcda;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .btn-blue-style {
+    width: 50%;       /* giảm chiều ngang */
+    font-size: 12px;  /* chữ nhỏ lại */
+    padding: 10px 15px;
+    margin: 0 auto;   /* căn giữa */
+    display: block;
+  }
+}
+.service-login-section {
+  padding: 60px 10%;
+  background: #f9f9f9;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* PC: 2 cột */
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .service-login-section {
+    grid-template-columns: 1fr; /* Mobile: 1 cột */
+  }
+}
